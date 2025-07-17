@@ -1,0 +1,35 @@
+# Example GraphQL Schema
+# This file demonstrates a basic GraphQL schema with a Query and Mutation.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  # Retrieve a user by ID
+  user(id: ID!): User
+  # Retrieve all users
+  users: [User!]
+}
+
+type Mutation {
+  # Create a new user
+  createUser(name: String!, email: String!): User
+  # Update an existing user
+  updateUser(id: ID!, name: String, email: String): User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  posts: [Post!]
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  author: User!
+}
